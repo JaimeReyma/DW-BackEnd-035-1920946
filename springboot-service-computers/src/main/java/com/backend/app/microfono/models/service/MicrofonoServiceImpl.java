@@ -1,5 +1,6 @@
 package com.backend.app.microfono.models.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,28 @@ public class MicrofonoServiceImpl implements MicrofonoService {
 	public Microfono findById(Long id) {
 		return dao.findById(id).orElse(null);
 	}
+	
+	
+	@Override
+	@Transactional
+	public Microfono save(Microfono microfono) {
+	    microfono.setCreatedAt(new Date(0)); 
+	    return dao.save(microfono);
+	}
+	
+	
+	@Override
+	@Transactional
+	public Microfono saved(Microfono microfono) {
+	    return dao.save(microfono);
+	}
+	
+	
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		dao.deleteById(id);
+	}
+
 
 }

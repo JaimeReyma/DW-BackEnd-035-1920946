@@ -9,4 +9,11 @@ public interface MicrofonoService {
 	public List<Microfono> findAll();
 	
 	public Microfono findById(Long id);
+
+	public Microfono save(Microfono microfono);
+
+	public Microfono saved(Microfono microfono);
+
+	public void delete(Long id);
+		
 }
